@@ -67,12 +67,17 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Uses correct html structure for app. Two pages, on main for login and discussion choice/creation, and one for the discussion itself with the comments.
+- **CSS** - Styling that looks simple yet good, good use of whitespce and contrast, easily readable layout of titles and interactabe elements such as the creat tab and individual discussions.
+- **React** - Provides login, discussion display and main page display, creating a new discussion, commenting, display other users comments and the individual comment total for each discussion, and use of React for routing and components.
+- **Service** - Backend service with endpoints for:
+login
+retrieving discussions 
+creating discussions
+commenting
+retrieving total comments for each discussion
+- **DB/Login** - Store users, discussions, and comments/comment totals in database. Register and login users. Credentials securely stored in database. Can't comment or create discussions unless authenticated.
+- **WebSocket** -  As each user comments or creates discussions, their discussions are broadcast to all other users on the main page. As they comment, those comments are broadcast to everyone within the discussion while the total amount of that discussion's comments are updated and broadcast on the main page to every user.
 
 ## 🚀 AWS deliverable
 
