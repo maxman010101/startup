@@ -19,7 +19,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [X] Proper use of Markdown
 - [X] A concise and compelling elevator pitch
-- [ ] Description of key features
+- [X] Description of key features
 - [ ] Description of how you will use each technology
 - [X] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
@@ -31,7 +31,7 @@ Have you ever endlessly debated with your friends about different topics, or be 
 
 ![Design image](image0(7).jpeg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Here is how a user would make a discussion and how making a comment would work with the backend of the app when commenting on a discussion. User makes new discussion, everyone else can see it, another comments in said discussion, that comment can be viewed by others and the number of that discussion's comments goes up.
 
 ```mermaid
 sequenceDiagram
@@ -53,9 +53,15 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Secure login over https
+- Abity to select and create discussions
+- Ability to comment in a discussion
+- Display of made discussions and their total comments
+- Display of comments within discussion sleected
+- Comments and total comments displayed in real time
+- discussions and comments persistently stored
+- ability of users to edit and delete their comments
+- ability of admin to delete discussions
 
 ### Technologies
 
