@@ -1,7 +1,7 @@
 # Free Chat
 [My Notes](notes.md)
 
-A brief description of the application here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Free Chat is an online discussion board where users can create and view discussions on various topics, from favorite restaraunts to best music. Users can create an account by adding their username on the main page. Users click on a discussion in the list to enter that discussion and can add their comments. Comment amounts are displayed next to each discussion so users can see how active their discussion is. The info tab will describe what the user can do on the main page and how to do them.
 
 
 > [!NOTE]
@@ -18,10 +18,10 @@ A brief description of the application here. Lorem ipsum dolor sit amet, consect
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] Proper use of Markdown
-- [ ] A concise and compelling elevator pitch
+- [X] A concise and compelling elevator pitch
 - [ ] Description of key features
 - [ ] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [X] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
