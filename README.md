@@ -31,6 +31,8 @@ Have you ever endlessly debated with your friends about different topics, or be 
 
 ![Design image](image0(7).jpeg)
 
+### Diagram
+
 Here is how a user would make a discussion and how making a comment would work with the backend of the app when commenting on a discussion. User makes new discussion, everyone else can see it, another comments in said discussion, that comment can be viewed by others and the number of that discussion's comments goes up.
 
 ```mermaid
