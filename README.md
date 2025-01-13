@@ -67,7 +67,7 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Uses correct html structure for app. Two pages, on main for login and discussion choice/creation, and one for the discussion itself with the comments.
+- **HTML** - Uses correct html structure for app. Two pages, one main for login and discussion choice/creation, and one for the discussion itself with the comments.
 - **CSS** - Styling that looks simple yet good, good use of whitespce and contrast, easily readable layout of titles and interactabe elements such as the creat tab and individual discussions.
 - **React** - Provides login, discussion display and main page display, creating a new discussion, commenting, display other users comments and the individual comment total for each discussion, and use of React for routing and components.
 - **Service** - Backend service with endpoints for:
