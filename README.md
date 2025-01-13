@@ -36,8 +36,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ```mermaid
 sequenceDiagram
     actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor Bob
+    actor Jack
+    actor Server
+    You->>Server: New Discussion(discussion 1)
+    Server->>Bob: discussion 1(on main page)
+    Server->>Jack: discussion 1(on main page)
+    Bob->>Server: comments on disc. 1
+    Server->>Bob: disc 1 comments + 1 and can see comment in disc 1
+    Server->>Jack: disc 1 comments + 1 and can see comment in disc 1
+    Server->>You: disc 1 comments + 1 and can see comment in disc 1
+
+
 ```
 
 ### Key features
