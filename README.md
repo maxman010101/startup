@@ -40,6 +40,7 @@ sequenceDiagram
     actor Jack
     actor Server
     You->>Server: New Discussion(discussion 1)
+    Server->>You: discussion 1(on main page)
     Server->>Bob: discussion 1(on main page)
     Server->>Jack: discussion 1(on main page)
     Bob->>Server: comments on disc. 1
