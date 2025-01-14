@@ -78,6 +78,7 @@ retrieving discussions
 creating discussions
 commenting
 retrieving total comments for each discussion
+Will use a third party news API to allow users to find the latest news topics as a way of finding discussion tpics for new chats
 - **DB/Login** - Store users, discussions, and comments/comment totals in database. Register and login users. Credentials securely stored in database. Can't comment or create discussions unless authenticated.
 - **WebSocket** -  As each user comments or creates discussions, their discussions are broadcast to all other users on the main page. As they comment, those comments are broadcast to everyone within the discussion while the total amount of that discussion's comments are updated and broadcast on the main page to every user.
 
