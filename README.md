@@ -84,9 +84,9 @@ Will use a third party news API to allow users to find the latest news topics as
 
 ## 🚀 AWS deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following. I checked the box `[x] Also completed each of the three steps, EC2, route53, and caddy instructions. Note: made my domain name before setting this up so the name doesnt exactly match the application function but it works since my app is still gonna be a discussion board type app. Made an elastic ip address as recommended, can ssh into my server, and edited the cadyy file as per the instructions.
 
-- [ ] **Server deployed and accessible with custom domain name** - [My server link](https://yourdomainnamehere.click).
+- [X] **Server deployed and accessible with custom domain name** - [My server link](https://maxwhitneygamediscussion.click/).
 
 ## 🚀 HTML deliverable
 
