@@ -25,7 +25,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Have you ever endlessly debated with your friends about different topics, or be discussion important things in a team meeting, only to run out of time and have to pause the discussion? The Free Chat application makes it so a group of people can pull out their phones, clearly see active discussions, and pick up wherre the discussion left off, as well as create many new discussions. As each user makes their discussions, they are automatically added and displayed in realtime to all the other app users. Once someone adds a comment, the total amoutn of that discussion's comments will be displayed on the main page.
+Have you ever endlessly debated with your friends about different topics, or be discussion important things in a team meeting, only to run out of time and have to pause the discussion? The Free Chat application makes it so a group of people can pull out their phones, clearly see active discussions, and pick up wherre the discussion left off, as well as create many new discussions. As each user makes their discussions, they are automatically added and displayed in realtime to all the other app users. Once someone adds a comment, the total amoutn of that discussion's comments will be displayed on the main page. TEST
 
 ### Design
 
