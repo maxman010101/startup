@@ -100,7 +100,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [X] **Images** - Added an image of the free chat logo(AI GENERATED) to the get topic page.
 - [X] **Login placeholder** - Login placeholder on main page, links to make chat page on submission submission text box for username and password, with login and create buttons.
 - [X] **DB data placeholder** - comment amounts, activity dates, and activity notifications pulled from database.
-- [X] **WebSocket placeholder** - number of comments, notifications, and dates of recent activity represent realtime data.
+- [X] **WebSocket placeholder** - number of comments, notifications, comments in chats, and dates of recent activity represent realtime data.
 
 ## 🚀 CSS deliverable
 
