@@ -93,7 +93,7 @@ For this deliverable I did the following. I checked the box `[x] Also completed 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] **HTML pages** - 5 html pages for login, finding topics, making chats, seeing active chats, and an example chat.
-- [X] **Proper HTML element usage** - Html structure fits example usages as is used correectly, such as headers, links, buttons, images, etc.
+- [X] **Proper HTML element usage** - Html structure fits example usages as is used correctly, such as headers, links, buttons, images, etc.
 - [X] **Links** - Login submission links to making a chat page, includes links to other pages as well, other links link to resective pages.
 - [X] **Text** - Descriptions for how to use make chat page, get topic page, and active chat page.
 - [X] **3rd party API placeholder** - Placeholder in get topic page has example topic from api, and button to be used to generate topic from api(non functional atm).
