@@ -92,15 +92,15 @@ For this deliverable I did the following. I checked the box `[x] Also completed 
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [X] **HTML pages** - 5 html pages for login, finding topics, making chats, seeing active chats, and an example chat.
+- [X] **Proper HTML element usage** - Html structure fits example usages as is used correectly, such as headers, links, buttons, images, etc.
+- [X] **Links** - Login submission links to making a chat page, includes links to other pages as well, other links link to resective pages.
+- [X] **Text** - Descriptions for how to use make chat page, get topic page, and active chat page.
+- [X] **3rd party API placeholder** - Placeholder in get topic page has example topic from api, and button to be used to generate topic from api(non functional atm).
+- [X] **Images** - Added an image of the free chat logo(AI GENERATED) to the get topic page.
+- [X] **Login placeholder** - Login placeholder on main page, links to make chat page on submission submission text box for username and password, with login and create buttons.
+- [X] **DB data placeholder** - comment amounts, activity dates, and activity notifications pulled from database.
+- [X] **WebSocket placeholder** - number of comments, notifications, and dates of recent activity represent realtime data.
 
 ## 🚀 CSS deliverable
 
