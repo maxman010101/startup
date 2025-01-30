@@ -46,6 +46,7 @@ menu {
 
 menu .nav-item, .nav-link{
   padding: 0 1em;
+  font-size: large;
   color: rgb(250, 140, 6) !important;
   border-bottom: solid rgb(227, 11, 26) thin;
 }
