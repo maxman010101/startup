@@ -31,22 +31,29 @@
       </nav>
     </header>
 
-    <main>
-      <div id="picture" class="picture-box"><img width="400px" src="FreeChatLogo.webp" alt="random" /></div>
-      <button type="submit">Get Topic</button>
-      <p>Topic: LA Wildfires Status</p>
-      <p>
-        Click the "Get Topic" button to find a current topic you can use in a chat!
-      </p>
-
-      <p>
-        Use of this application is for non-profit, educational use only. 
-        No part of this code or program should be used outside of that definition.
-      </p>
-
-      <div id="quote">
-        <div>There is just news. There is no good or bad</div>
-        <div>- Oogway :D</div>
+    <main class="container text-center my-4">
+      <!-- Centered Image Section -->
+      <div id="picture" class="picture-box mx-auto">
+        <img src="FreeChatLogo.webp" alt="Free Chat Logo" />
+      </div>
+    
+      <!-- Get Topic Section -->
+      <section class="topic-section bg-info p-4 rounded shadow-sm">
+        <button class="btn btn-primary mb-3" type="submit">Get Topic</button>
+        <p class="topic-display">Topic: <span id="topic-text">LA Wildfires Status</span></p>
+        <p class="text-muted">Click the "Get Topic" button to find a current topic you can use in a chat!</p>
+      </section>
+    
+      <!-- Disclaimer Text -->
+      <section class="disclaimer bg-danger text-white p-3 rounded mt-3">
+        <p>Use of this application is for non-profit, educational use only.</p>
+        <p>No part of this code or program should be used outside of that definition.</p>
+      </section>
+    
+      <!-- Quote Section -->
+      <div id="quote" class="quote-box bg-info text-dark mt-3 p-3 rounded">
+        <p class="quote">"There is just news. There is no good or bad."</p>
+        <p class="author">Oogway :D</p>
       </div>
     </main>
 

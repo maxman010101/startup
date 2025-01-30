@@ -1,15 +1,27 @@
+/* Center and properly size image */
 .picture-box {
-  height: calc(100px + 1em);
-  margin-bottom: 1em;
+  width: 50%;
+  max-width: 400px;
+  margin: 0 auto 1em;
   padding: 0.5em;
   background: rgb(86, 89, 93);
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+#picture img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Quote Box */
 .quote-box {
-  margin-top: 1em;
-  padding: 0.5em;
-  border-radius: 5px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .quote {
@@ -25,10 +37,20 @@
   content: " - ";
 }
 
-#picture img {
-  width: 100%;
-  height: 100%;
+/* Topic Section Styling */
+.topic-section {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
+
+/* Disclaimer Styling */
+.disclaimer {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Ensure the body takes up full height */
 body {
   display: flex;
