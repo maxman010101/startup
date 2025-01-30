@@ -15,27 +15,50 @@ header {
   color: white;
 }
 
+/* "Currently Logged in as" text moved to the right */
 .logged-in-text {
   font-size: 1.2rem;
   color: white;
   margin-right: 20px;
 }
 
-/* Navbar */
+/* NAVIGATION STYLING */
+.navbar {
+  display: flex !important;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #343a40 !important; /* Dark background */
+}
+
+/* Ensure "Free Chat" is on the left */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: yellow !important;
+  white-space: nowrap; /* Prevents it from breaking */
+  margin-right: 20px;
+}
+
+/* Move Navigation Links to the Right */
 menu {
   display: flex;
   flex-direction: row !important;
   list-style: none;
   padding: 0;
+  margin-left: auto; /* Push to the right */
 }
 
+/* Adjust Navigation Links */
 .nav-item {
   padding: 0 1em;
 }
 
 .nav-link {
-  color: white !important;
+  color: rgb(233, 95, 3) !important;
+  font-size: 1rem;
+  white-space: nowrap;
 }
+
 
 /* Main Container */
 main {
@@ -57,10 +80,10 @@ main {
   text-align: left;
 }
 
-/* Create a Chat Section */
+/* Create a Chat Section (Red Background and Rounded Corners) */
 .create-chat-container {
   width: 60%;
-  background-color: rgba(245, 245, 245, 0.9);
+  background-color: rgba(255, 0, 0, 0.9); /* Red Background */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -70,7 +93,7 @@ main {
 
 .create-chat-text {
   font-size: 1.1rem;
-  color: #343a40;
+  color: white; /* White text for contrast */
 }
 
 /* User Messages */
@@ -79,12 +102,13 @@ main {
   opacity: 0.7;
 }
 
+/* Darker Blue for Names in Notifications */
 .event {
   color: rgb(69, 69, 69);
 }
 
 .user-event {
-  color: rgb(165, 220, 235);
+  color: rgb(0, 85, 170); /* Darker Blue */
 }
 
 /* Footer Styling */
@@ -95,6 +119,13 @@ main {
   padding: 10px;
   position: absolute;
   bottom: 0;
+}
+
+/* Move Name to Left and GitHub Link to Right */
+.footer .container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer a {
