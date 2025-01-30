@@ -30,7 +30,8 @@ menu {
 
 .navbar-brand {
   padding-left: 0.3em;
-  border-bottom: dashed rgb(23, 204, 68) thin;
+  border-bottom: dashed rgb(227, 11, 26) thick;
+ 
 }
 
 menu .nav-item {
