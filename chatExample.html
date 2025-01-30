@@ -32,15 +32,24 @@
       </nav>
     </header>
 
-    <main>
-      <h1>Welcome to the Chat!</h1>
-      <p>Joe: How about that weather?!</p>
-      <p></p>
-      <p>Bob: Its pretty cold alright!</p>
-        <div>
-          <input type="text" placeholder="Write your message." />
+    <main class="chat-container">
+      <h1 class="chat-title">Welcome to the Chat!</h1>
+    
+      <!-- Chat Window -->
+      <div class="chat-box">
+        <div class="message received">
+          <p><strong>Joe:</strong> How about that weather?!</p>
         </div>
+        <div class="message sent">
+          <p><strong>Bob:</strong> It's pretty cold, alright!</p>
+        </div>
+      </div>
+    
+      <!-- Message Input -->
+      <div class="message-input">
+        <input type="text" placeholder="Write your message..." />
         <button type="submit">Chat</button>
+      </div>
     </main>
 
     <footer class="footer bg-dark text-info">
