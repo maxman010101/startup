@@ -33,6 +33,11 @@ menu {
   list-style: none;
 }
 
+.input-group-container {
+  display: flex;
+  gap: 10px; /* Adds spacing between the fields */
+}
+
 .navbar-brand {
   padding-left: 0.3em;
   border-bottom: dashed rgb(227, 11, 26) thick;
