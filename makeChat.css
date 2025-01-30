@@ -5,29 +5,32 @@ body {
   min-height: 100vh;
 }
 
-/* Header Styling */
+/* HEADER - Ensure Proper Layout */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 20px;
   background-color: #343a40;
   color: white;
 }
 
-/* "Currently Logged in as" text moved to the right */
+
+
+/* LOGGED-IN TEXT - Larger Font & Right Aligned */
 .logged-in-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem; /* Increased Size */
   color: white;
-  margin-right: 20px;
+  margin: 0;
+  flex-grow: 1;
+  text-align: right; /* Align to the Right */
+  white-space: nowrap;
 }
 
-/* NAVIGATION STYLING */
+/* NAVBAR FIX - Prevents overlap */
 .navbar {
-  display: flex !important;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #006522 !important; /* Dark background */
+  position: relative; /* Prevents it from covering the header */
+  z-index: 999; /* Lower than header */
 }
 
 /* Ensure "Free Chat" is on the left */
