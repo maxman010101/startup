@@ -3,6 +3,57 @@ body {
   flex-direction: column;
   min-width: 375px;
 }
+/* Ensure the body takes up full height */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER - Ensure Proper Layout */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #343a40;
+  color: white;
+}
+
+/* NAVBAR FIX - Prevents overlap */
+.navbar {
+  position: relative; /* Prevents it from covering the header */
+  z-index: 999; /* Lower than header */
+}
+
+/* Ensure "Free Chat" is on the left */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: yellow !important;
+  white-space: nowrap; /* Prevents it from breaking */
+  margin-right: 20px;
+}
+
+/* Move Navigation Links to the Right */
+menu {
+  display: flex;
+  flex-direction: row !important;
+  list-style: none;
+  padding: 0;
+  margin-left: auto; /* Push to the right */
+}
+
+/* Adjust Navigation Links */
+.nav-item {
+  padding: 0 1em;
+}
+
+.nav-link {
+  color: rgb(183, 74, 1) !important;
+  font-size: 1rem;
+  white-space: nowrap;
+}
 
 header {
   flex: 0 80px;
@@ -47,7 +98,7 @@ menu {
 menu .nav-item, .nav-link{
   padding: 0 1em;
   font-size: large;
-  color: rgb(250, 140, 6) !important;
+  color: rgb(223, 123, 0) !important;
   border-bottom: solid rgb(227, 11, 26) thin;
 }
 
