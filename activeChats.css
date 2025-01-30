@@ -49,13 +49,23 @@ header {
   margin-right: 20px;
 }
 
-/* Move Navigation Links to the Right */
+/* Ensure menu links are spaced properly */
 menu {
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row;
+  justify-content: center;
   list-style: none;
   padding: 0;
-  margin-left: auto; /* Push to the right */
+  margin: 0;
+  gap: 10px;
+}
+
+/* Style chat selection buttons */
+menu li a {
+  display: inline-block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* Adjust Navigation Links */
