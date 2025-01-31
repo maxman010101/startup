@@ -106,12 +106,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [X] **Header, footer, and main content body** - I added headers and footers for every page that all are the same for consistency. The main body content is unique for each page, including slight variations for background colors and designs.
+- [X] **Navigation elements** - I made sure the navigation items were clear and underlined, amde sure they work as links and fit within the ehader correctly..
+- [X] **Responsive to window resizing** - My app looks good on the screen and adjusts according to screen/window size until overidden if size is too small or too large for it to shrink down or spread out/fill the space, respectively.
+- [X] **Application elements** - I made sure the elements if my application were clear to understand and each page was unique yet consitent to the overlall design Good contrast and use of space and use of containers.
+- [X] **Application text content** - Consistent fonts and clear readability in each instance of text.
+- [X] **Application images** - Updated image to match my app in the get topic page, adjusted it to fit in the center of the page and fit with the rest of the main content, and updated it to be the app icon in the browser tab.
 
 ## 🚀 React part 1: Routing deliverable
 
