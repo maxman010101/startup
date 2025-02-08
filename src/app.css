@@ -1,10 +1,10 @@
-body {
+.body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
 }
 /* Ensure the body takes up full height */
-body {
+.body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
