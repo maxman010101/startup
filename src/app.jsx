@@ -1,36 +1,55 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { MakeChat } from './makechat/makechat';
+import { ActiveChats } from './activechats/activechats';
+import { Topic } from './topic/topic';
+import { Chat } from './chat/chat';
 
 export default function App() {
     return(
-    <div className="bg-success text-dark">
-   
-        <header className="container-fluid d-flex justify-content-between align-items-center p-3 bg-dark text-white">
-      
+    <BrowserRouter>
+        <div className="bg-success text-dark">
     
-            <nav className="navbar fixed-top navbar-dark bg-success px-3">
-                <a className="navbar-brand text-warning fs-3" href="#">Free Chat</a>
-                <menu className="navbar-nav d-flex flex-row ms-auto">
-                <li className="nav-item"><a className="nav-link active" href="index.html">Login</a></li>
-                <li className="nav-item"><a className="nav-link" href="play.html">Make New Chat</a></li>
-                <li className="nav-item"><a className="nav-link" href="scores.html">Active Chats</a></li>
-                <li className="nav-item"><a className="nav-link" href="about.html">Get Chat Topic</a></li>
-                </menu>
-            </nav>
-        </header>
-     
-    
+            <header className="container-fluid d-flex justify-content-between align-items-center p-3 bg-dark text-white">
+        
+        
+                <nav className="navbar fixed-top navbar-dark bg-success px-3">
+                    <NavLink className="navbar-brand text-warning fs-3" to="#">Free Chat</NavLink>
+                    <menu className="navbar-nav d-flex flex-row ms-auto">
+                    <li className="nav-item"><NavLink className="nav-link" to="">Login</NavLink></li>
+                    <li className="nav-item"><NavLink className="nav-link" to="makechat">Make New Chat</NavLink></li>
+                    <li className="nav-item"><NavLink className="nav-link" to="activechats">Active Chats</NavLink></li>
+                    <li className="nav-item"><NavLink className="nav-link" to="topic">Get Chat Topic</NavLink></li>
+                    </menu>
+                    <h1 class="logged-in-text m-0 flex-grow-1 text-end">Currently Logged in as: <span id="username">username</span></h1>
+                </nav>
+            </header>
+        
+        
 
-        <main>App components go here</main>
+            <Routes>
+                <Route path='/' element={<Login />} exact />
+                <Route path='/makechat' element={<MakeChat />} />
+                <Route path='/activechats' element={<ActiveChats />} />
+                <Route path='/topic' element={<Topic />} />
+                <Route path='/chat' element={<Chat />} />
+                <Route path='*' element={<NotFound />} />
+            </Routes>
 
-        <footer className="bg-dark text-info">
-            <div className="container-fluid">
-                <span className="text-reset">Max Whitney</span>
-                <a href="https://github.com/maxman010101/startup.git">GitHub</a>
-            </div>
-      
-        </footer>
-    </div>
+            <footer className="bg-dark text-info">
+                <div className="container-fluid">
+                    <span className="text-reset">Max Whitney</span>
+                    <NavLink to="https://github.com/maxman010101/startup.git">GitHub</NavLink>
+                </div>
+        
+            </footer>
+        </div>
+    </BrowserRouter>
     );
 }
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+  }
