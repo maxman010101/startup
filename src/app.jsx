@@ -35,7 +35,7 @@ export default function App() {
                 <Route path='/makechat' element={<MakeChat />} />
                 <Route path='/activechats' element={<ActiveChats />} />
                 <Route path='/topic' element={<Topic />} />
-                <Route path='/chat' element={<Chat />} />
+                <Route path='/activechats/chat' element={<Chat />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
 
