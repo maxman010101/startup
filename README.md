@@ -117,9 +117,14 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
+- [X] **Bundled using Vite** - Completed! App is bundled and set up with vite,
+- [X] **Components** - Got each of my components set up using react and have them each linked together using react:
+- login - got the login buttons to go to the make chat page with react
+- make chat - make button goes to chat page
+- active chats - clicking on the buttons for each active chat opens the chat page
+- topic - set up the topic page correctly with react, button will link to third party news source later on
+- chat - set up the look correctly in react, buttons will do their purposes later on
+- [X] **Router** - Routing works between my components according to the buttons and links displayed, except for the non-functional buttons.
 
 ## 🚀 React part 2: Reactivity
 
