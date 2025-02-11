@@ -1,7 +1,7 @@
-.body {
-  display: flex;
-  flex-direction: column;
-  min-width: 375px;
+/* Apply full height to the body */
+html, body, #root {
+  height: 100%;
+  margin: 0;
 }
 /* Ensure the body takes up full height */
 .body {
@@ -12,7 +12,7 @@
 
 /* HEADER - Ensure Proper Layout */
 header {
-  display: flex;
+  flex: 0 0 auto;;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
@@ -62,14 +62,15 @@ header {
 }
 
 main {
-  flex: 1 calc(100vh - 110px);
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center; /* Center content vertically */
   border: 2px solid black; 
   padding: 20px; 
-  border-radius: 360px; 
+  background-color: #0080ff;
+  /* Removed border-radius to prevent layout issues */
 }
 
 footer {

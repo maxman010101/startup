@@ -11,7 +11,7 @@ import { Chat } from './chat/chat';
 export default function App() {
     return(
     <BrowserRouter>
-        <div className="bg-success text-dark">
+        <div className="body bg-success text-dark">
     
             <header className="container-fluid d-flex justify-content-between align-items-center p-3 bg-dark text-white">
         
@@ -24,12 +24,12 @@ export default function App() {
                     <li className="nav-item"><NavLink className="nav-link" to="activechats">Active Chats</NavLink></li>
                     <li className="nav-item"><NavLink className="nav-link" to="topic">Get Chat Topic</NavLink></li>
                     </menu>
-                    <h1 class="logged-in-text m-0 flex-grow-1 text-end">Currently Logged in as: <span id="username">username</span></h1>
+                    <h1 className="logged-in-text m-0 flex-grow-1 text-end">Currently Logged in as: <span id="username">username</span></h1>
                 </nav>
             </header>
         
         
-
+            <main>
             <Routes>
                 <Route path='/' element={<Login />} exact />
                 <Route path='/makechat' element={<MakeChat />} />
@@ -38,7 +38,7 @@ export default function App() {
                 <Route path='/activechats/chat' element={<Chat />} />
                 <Route path='*' element={<NotFound />} />
             </Routes>
-
+            </main>
             <footer className="bg-dark text-info">
                 <div className="container-fluid">
                     <span className="text-reset">Max Whitney</span>
