@@ -130,8 +130,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [X] **All functionality implemented or mocked out** - Using local storage for users when logged in for user display and accessibility to further pages when logged in. Mocked out third party application topic fetching. 
+- [X] **Hooks** - Use of useState hooks in login, app and topic pages. 
 
 ## 🚀 Service deliverable
 

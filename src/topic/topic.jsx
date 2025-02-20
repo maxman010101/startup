@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './topicGet.css';
 
 export function Topic() {
+  const [topic, setTopic] = useState('');
+
+  const handleGetTopic = () => {
+    setTopic('LA Wildfires Status'); // This will later be replaced with dynamic topic fetching
+  };
+
   return (
     <main className="container text-center my-4">
       <div id="picture" className="picture-box mx-auto">
@@ -9,8 +15,10 @@ export function Topic() {
       </div>
     
       <section className="topic-section bg-info p-4 rounded shadow-sm">
-        <button className="btn btn-primary mb-3" type="submit">Get Topic</button>
-        <p className="topic-display">Topic: <span id="topic-text">LA Wildfires Status</span></p>
+        <button className="btn btn-primary mb-3" type="button" onClick={handleGetTopic}>
+          Get Topic
+        </button>
+        <p className="topic-display">Topic: <span id="topic-text">{topic}</span></p>
         <p className="text-muted">Click the "Get Topic" button to find a current topic you can use in a chat!</p>
       </section>
     
