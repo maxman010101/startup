@@ -1,26 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export function Login() {
-  const navigate = useNavigate();  // Hook for navigation
+export function Login({ setUser }) {
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  // Function to handle both Login and Create buttons
   const handleAuth = (e, type) => {
-    e.preventDefault();  // Prevent page reload
+    e.preventDefault();
     console.log(`${type} with Username: ${username}, Password: ${password}`);
-
-    // Navigate to MakeChat page after login or account creation
-    navigate('/makechat', { state: { username } });  
+    
+    if (username) {
+      localStorage.setItem('user', username);
+      setUser(username);
+      navigate('/makechat');
+    }
   };
 
   return (
     <main className="container-xxl bg-danger text-center">
       <div>
         <h1>Welcome to Free Chat!! :D</h1>
-
-        {/* Form submission handled by React */}
         <form>
           <div className="input-group-container">
             <div className="input-group">
@@ -44,8 +44,6 @@ export function Login() {
               />
             </div>
           </div>
-
-          {/* Buttons trigger the handleAuth function */}
           <button 
             type="button" 
             className="btn btn-success mt-2 mx-1" 
@@ -53,7 +51,6 @@ export function Login() {
           >
             Login
           </button>
-
           <button 
             type="button" 
             className="btn btn-info mt-2 mx-1" 
