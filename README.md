@@ -130,8 +130,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [X] **All functionality implemented or mocked out** - Using local storage for users when logged in for user display and accessibility to further pages when logged in. Mocked out third party application topic fetching. 
-- [X] **Hooks** - Use of useState hooks in login, app and topic pages. 
+- [X] **All functionality implemented or mocked out** - Using local storage for users when logged in for user display and accessibility to further pages when logged in. Mocked out third party application topic fetching. Added chat functionality so I can actually 'send' a message in a chat.
+- [X] **Hooks** - Use of useState hooks in login, app and topic pages. Use of useState and useEffect in chat example page to do messages appearing in the chat box.
 
 ## 🚀 Service deliverable
 
