@@ -8,7 +8,7 @@ export function ActiveChats() {
   useEffect(() => {
     const storedChats = JSON.parse(localStorage.getItem('chats')) || [];
     setChats(storedChats);
-  }, []);
+  }, []); 
 
   return (
     <div>
