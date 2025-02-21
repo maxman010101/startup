@@ -6,10 +6,19 @@ export function MakeChat() {
   const navigate = useNavigate();
   const [chatName, setChatName] = useState('');
   const [notifications, setNotifications] = useState([]);
+  const userNames = ['Joe', 'Alice', 'Bob', 'Charlie', 'Dana'];
+  const chatNames = ['Favorite Movies', 'Best Restaurants', 'Tech Talk', 'Gaming Chat', 'Daily News'];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setNotifications((prev) => [...prev, `New message from Chat ${prev.length + 1}`]);
+      const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
+      const randomChat = chatNames[Math.floor(Math.random() * chatNames.length)];
+      const newNotification = `${randomUser} made a new chat called '${randomChat}'`;
+      
+      setNotifications((prev) => {
+        const updatedNotifications = [...prev, newNotification].slice(-5); // Keep last 5 notifications
+        return updatedNotifications;
+      });
     }, 5000);
 
     return () => clearInterval(interval);
@@ -18,8 +27,10 @@ export function MakeChat() {
   const handleCreateChat = (e) => {
     e.preventDefault();
     const existingChats = JSON.parse(localStorage.getItem('chats')) || [];
-    const newChats = [...existingChats, { name: chatName, comments: 0, date: new Date().toLocaleDateString() }];
+    const newChat = { name: chatName, comments: 0, date: new Date().toLocaleDateString() };
+    const newChats = [...existingChats, newChat];
     localStorage.setItem('chats', JSON.stringify(newChats));
+    
     navigate('/activechats');
   };
 
@@ -28,7 +39,7 @@ export function MakeChat() {
       <div className="notifications">
         <h3>Notifications:</h3>
         <ul>
-          {notifications.slice(-5).map((note, index) => (
+          {notifications.map((note, index) => (
             <li key={index}>{note}</li>
           ))}
         </ul>
