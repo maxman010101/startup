@@ -130,8 +130,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [X] **All functionality implemented or mocked out** - Using local storage for users when logged in for user display and accessibility to further pages when logged in. Mocked out third party application topic fetching. Added chat functionality so I can actually 'send' a message in a chat. Make chat stored made chats and puts them into the active chats table. Make chat also has mocked out notifications for chat updates. Message count is saved for each chat in active chat page.
-- [X] **Hooks** - Use of useState hooks in login, app and topic pages. Use of useState and useEffect in chat example page to do messages appearing in the chat box. Usestate and effect in both make chat and active chats for notifications for make and storage of created chats for both.
+- [X] **All functionality implemented or mocked out** - Using local storage for users when logged in for user display and accessibility to further pages when logged in. Mocked out third party application topic fetching. Added chat functionality so I can actually 'send' a message in a chat. Make chat stored made chats and puts them into the active chats table. Make chat also has mocked out notifications for chat updates/whenever other users make chats. Message count is saved for each chat in active chat page. Persistent storage of each chat's messages that are reflected in number of messages in active chats page. 
+- [X] **Hooks** - Use of useState hooks in login, app and topic pages. Use of useState and useEffect in chat example page to do messages appearing in the chat box. Usestate and useeffect in both make chat and active chats for notifications for makechat and storage of created chats for both. using both hooks in chat for messages and staorage of messages, as well as users own inputed message. Overall extensive use of useState and useEffect.
 
 ## 🚀 Service deliverable
 
