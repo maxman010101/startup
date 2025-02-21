@@ -8,7 +8,15 @@ export function ActiveChats() {
   useEffect(() => {
     const storedChats = JSON.parse(localStorage.getItem('chats')) || [];
     setChats(storedChats);
-  }, []); 
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const updatedChats = JSON.parse(localStorage.getItem('chats')) || [];
+      setChats(updatedChats);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div>
@@ -18,7 +26,11 @@ export function ActiveChats() {
           <nav>
             <menu className="d-flex justify-content-center gap-3">
               {chats.map((chat, index) => (
-                <li key={index}><NavLink className="btn btn-warning" to="chat">{index + 1}</NavLink></li>
+                <li key={index}>
+                  <NavLink className="btn btn-warning" to="chat" state={{ chatName: chat.name }}>
+                    {index + 1}
+                  </NavLink>
+                </li>
               ))}
             </menu>
           </nav>

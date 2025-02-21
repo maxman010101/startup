@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './chat.css';
+import { useLocation } from 'react-router-dom';
 
 export function Chat() {
+  const location = useLocation();
+  const chatName = location.state?.chatName || 'Unknown Chat';
+
   const [messages, setMessages] = useState([
     { user: 'Joe', text: 'How about that weather?!' },
     { user: 'Bob', text: "It's pretty cold, alright!" }
@@ -17,7 +21,11 @@ export function Chat() {
   useEffect(() => {
     const interval = setInterval(() => {
       const randomMessage = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
-      setMessages((prev) => [...prev, randomMessage]);
+      setMessages((prev) => {
+        const newMessages = [...prev, randomMessage];
+        updateChatMetadata(newMessages.length);
+        return newMessages;
+      });
     }, 5000);
 
     return () => clearInterval(interval);
@@ -25,14 +33,26 @@ export function Chat() {
 
   const handleSendMessage = () => {
     if (input.trim()) {
-      setMessages((prev) => [...prev, { user: 'You', text: input }]);
+      setMessages((prev) => {
+        const newMessages = [...prev, { user: 'You', text: input }];
+        updateChatMetadata(newMessages.length);
+        return newMessages;
+      });
       setInput('');
     }
   };
 
+  const updateChatMetadata = (messageCount) => {
+    const existingChats = JSON.parse(localStorage.getItem('chats')) || [];
+    const updatedChats = existingChats.map(chat =>
+      chat.name === chatName ? { ...chat, comments: messageCount, date: new Date().toLocaleDateString() } : chat
+    );
+    localStorage.setItem('chats', JSON.stringify(updatedChats));
+  };
+
   return (
     <main className="chat-container">
-      <h1 className="chat-title">Welcome to the Chat!</h1>
+      <h1 className="chat-title">Welcome to {chatName}!</h1>
       <div className="chat-box">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.user === 'You' ? 'sent' : 'received'}`}>
