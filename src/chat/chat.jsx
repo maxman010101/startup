@@ -8,9 +8,16 @@ export function Chat() {
   ]);
   const [input, setInput] = useState('');
 
+  const sampleMessages = [
+    { user: 'Alice', text: 'Anyone here watched the latest movie?' },
+    { user: 'Charlie', text: 'What’s everyone up to today?' },
+    { user: 'Dana', text: 'Has anyone tried that new coffee shop?' }
+  ];
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessages((prev) => [...prev, { user: 'System', text: 'This is a placeholder message.' }]);
+      const randomMessage = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
+      setMessages((prev) => [...prev, randomMessage]);
     }, 5000);
 
     return () => clearInterval(interval);
