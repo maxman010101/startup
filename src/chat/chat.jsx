@@ -6,10 +6,7 @@ export function Chat() {
   const location = useLocation();
   const chatName = location.state?.chatName || 'Unknown Chat';
 
-  const [messages, setMessages] = useState([
-    { user: 'Joe', text: 'How about that weather?!' },
-    { user: 'Bob', text: "It's pretty cold, alright!" }
-  ]);
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
   const sampleMessages = [
@@ -19,11 +16,19 @@ export function Chat() {
   ];
 
   useEffect(() => {
+    const storedChats = JSON.parse(localStorage.getItem('chats')) || [];
+    const currentChat = storedChats.find(chat => chat.name === chatName);
+    if (currentChat && currentChat.messages) {
+      setMessages(currentChat.messages);
+    }
+  }, [chatName]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const randomMessage = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
       setMessages((prev) => {
         const newMessages = [...prev, randomMessage];
-        updateChatMetadata(newMessages.length);
+        updateChatMetadata(newMessages);
         return newMessages;
       });
     }, 5000);
@@ -35,17 +40,17 @@ export function Chat() {
     if (input.trim()) {
       setMessages((prev) => {
         const newMessages = [...prev, { user: 'You', text: input }];
-        updateChatMetadata(newMessages.length);
+        updateChatMetadata(newMessages);
         return newMessages;
       });
       setInput('');
     }
   };
 
-  const updateChatMetadata = (messageCount) => {
+  const updateChatMetadata = (newMessages) => {
     const existingChats = JSON.parse(localStorage.getItem('chats')) || [];
     const updatedChats = existingChats.map(chat =>
-      chat.name === chatName ? { ...chat, comments: messageCount, date: new Date().toLocaleDateString() } : chat
+      chat.name === chatName ? { ...chat, messages: newMessages, comments: newMessages.length, date: new Date().toLocaleDateString() } : chat
     );
     localStorage.setItem('chats', JSON.stringify(updatedChats));
   };
