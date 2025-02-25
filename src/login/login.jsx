@@ -5,9 +5,15 @@ export function Login({ setUser }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleAuth = (e, type) => {
     e.preventDefault();
+    if (!username || !password) {
+      setError('Both username and password are required.');
+      return;
+    }
+    setError('');
     console.log(`${type} with Username: ${username}, Password: ${password}`);
     
     if (username) {
@@ -21,6 +27,7 @@ export function Login({ setUser }) {
     <main className="container-xxl bg-danger text-center">
       <div>
         <h1>Welcome to Free Chat!! :D</h1>
+        {error && <p className="text-warning">{error}</p>}
         <form>
           <div className="input-group-container">
             <div className="input-group">
