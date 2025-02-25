@@ -50,8 +50,8 @@ export default function App() {
                         <Route path='/' element={<Login setUser={setUser} />} exact />
                         <Route path='/makechat' element={user ? <MakeChat /> : <Navigate to="/" />} />
                         <Route path='/activechats' element={user ? <ActiveChats /> : <Navigate to="/" />} />
-                        <Route path='/topic' element={<Topic />} />
-                        <Route path='/activechats/chat' element={<Chat />} />
+                        <Route path='/topic' element={user ? <Topic /> : <Navigate to="/" />} />
+                        <Route path='/activechats/chat' element={user ? <Chat /> : <Navigate to="/" />} />
                         <Route path='*' element={<NotFound />} />
                     </Routes>
                 </main>
