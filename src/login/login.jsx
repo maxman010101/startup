@@ -7,19 +7,30 @@ export function Login({ setUser }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleAuth = (e, type) => {
+  const handleAuth = async (e, type) => {
     e.preventDefault();
     if (!username || !password) {
       setError('Both username and password are required.');
       return;
     }
     setError('');
-    console.log(`${type} with Username: ${username}, Password: ${password}`);
-    
-    if (username) {
-      localStorage.setItem('user', username);
-      setUser(username);
+    const endpoint = type === 'Login' ? '/api/auth/login' : '/api/auth/create';
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.msg || 'Authentication failed');
+        return;
+      }
+      const data = await response.json();
+      setUser(data.username);
       navigate('/makechat');
+    } catch (err) {
+      setError('An error occurred. Please try again.');
     }
   };
 

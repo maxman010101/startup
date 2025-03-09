@@ -137,11 +137,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
+- [X] **Node.js/Express HTTP service** - Installed express with nm, default port 3000.
+- [X] **Static middleware for frontend** - endpoints for app located in service/index.js
 - [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [X] **Backend service endpoints** - endpoints for auth(login functionality) and chats(later on)
+- [X] **Frontend calls service endpoints** - login/out functionality done with service calls now.
+- [x] **Supports registration, login, logout, and restricted endpoint** - Fully support authentication and restrict access to all pages when not logged in.
 
 ## 🚀 DB/Login deliverable
 
