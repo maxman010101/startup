@@ -69,7 +69,7 @@ apiRouter.get('/chats', verifyAuth, (_req, res) => {
     res.send(chats);
 });
   
-// SubmitChat
+// create/update chat
 apiRouter.post('/chat', verifyAuth, (req, res) => {
     chats = updateChats(req.body);
     res.send(chats);
@@ -85,19 +85,16 @@ app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
   
-// updateChats considers a new chat for inclusion in the chat list.
-function updateChats(newChat) {
-    let found = false;
-    // (Insertion logic can be customized as needed)
-    chats.splice(0, 0, newChat);
-    found = true;
-
-    if (!found) {
-      chats.push(newChat);
+// updateChats updates an existing chat (matched by name) or adds a new chat.
+function updateChats(chatUpdate) {
+    const index = chats.findIndex(chat => chat.name === chatUpdate.name);
+    if (index !== -1) {
+      chats[index] = chatUpdate;
+    } else {
+      chats.push(chatUpdate);
     }
-
     return chats;
-}
+  }
   
 async function createUser(username, password) {
     const passwordHash = await bcrypt.hash(password, 10);

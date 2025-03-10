@@ -26,12 +26,27 @@ export function MakeChat() {
 
   const handleCreateChat = (e) => {
     e.preventDefault();
-    const existingChats = JSON.parse(localStorage.getItem('chats')) || [];
-    const newChat = { name: chatName, comments: 0, date: new Date().toLocaleDateString() };
-    const newChats = [...existingChats, newChat];
-    localStorage.setItem('chats', JSON.stringify(newChats));
-    
-    navigate('/activechats');
+    const newChat = { 
+      name: chatName, 
+      comments: 0, 
+      date: new Date().toLocaleDateString(), 
+      messages: [] 
+    };
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newChat),
+      });
+      if (response.ok) {
+        navigate('/activechats');
+      } else {
+        console.error('Failed to create chat');
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
