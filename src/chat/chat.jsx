@@ -16,11 +16,21 @@ export function Chat() {
   ];
 
   useEffect(() => {
-    const storedChats = JSON.parse(localStorage.getItem('chats')) || [];
-    const currentChat = storedChats.find(chat => chat.name === chatName);
-    if (currentChat && currentChat.messages) {
-      setMessages(currentChat.messages);
-    }
+    const fetchChat = async () => {
+      try {
+        const response = await fetch('/api/chats');
+        if (response.ok) {
+          const data = await response.json();
+          const currentChat = data.find(chat => chat.name === chatName);
+          if (currentChat && currentChat.messages) {
+            setMessages(currentChat.messages);
+          }
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchChat();
   }, [chatName]);
 
   useEffect(() => {
@@ -47,12 +57,22 @@ export function Chat() {
     }
   };
 
-  const updateChatMetadata = (newMessages) => {
-    const existingChats = JSON.parse(localStorage.getItem('chats')) || [];
-    const updatedChats = existingChats.map(chat =>
-      chat.name === chatName ? { ...chat, messages: newMessages, comments: newMessages.length, date: new Date().toLocaleDateString() } : chat
-    );
-    localStorage.setItem('chats', JSON.stringify(updatedChats));
+  const updateChatMetadata = async (newMessages) => {
+    const chatUpdate = { 
+      name: chatName, 
+      messages: newMessages, 
+      comments: newMessages.length, 
+      date: new Date().toLocaleDateString() 
+    };
+    try {
+      await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(chatUpdate),
+      });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
