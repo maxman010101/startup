@@ -4,8 +4,28 @@ import './topicGet.css';
 export function Topic() {
   const [topic, setTopic] = useState('');
 
-  const handleGetTopic = () => {
-    setTopic('LA Wildfires Status'); // This will later be replaced with dynamic topic fetching
+  const handleGetTopic = async () => {
+    const apiKey = '1f1e7ab62d894e70922241b73fa2a4a4'; 
+    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        setTopic('Error fetching news.');
+        return;
+      }
+      const data = await response.json();
+      if (data.articles && data.articles.length > 0) {
+        // Select a random article from the results
+        const randomIndex = Math.floor(Math.random() * data.articles.length);
+        const randomArticle = data.articles[randomIndex];
+        setTopic(randomArticle.title);
+      } else {
+        setTopic('No articles found.');
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+      setTopic('Error fetching news.');
+    }
   };
 
   return (

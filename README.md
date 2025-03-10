@@ -139,7 +139,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [X] **Node.js/Express HTTP service** - Installed express with nm, default port 3000.
 - [X] **Static middleware for frontend** - endpoints for app located in service/index.js, uses get, post, and delete for the related functionality.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
+- [ ] **Calls to third party endpoints** - Topic page calls News API to grab a random news article title when the button is clicked, a topic name is rendered in the box on each click.
 - [X] **Backend service endpoints** - endpoints for auth(post and delete endpoints for login/out) and chats(get and post to create and update chats and their respective data)
 - [X] **Frontend calls service endpoints** - login/out functionality done with service calls(post and delete) now, as well as making and updating chats(post and get).
 - [x] **Supports registration, login, logout, and restricted endpoint** - Fully support authentication and restricted access to all but default login pages when not logged in.
