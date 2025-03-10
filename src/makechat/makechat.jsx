@@ -24,7 +24,7 @@ export function MakeChat() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleCreateChat = (e) => {
+  const handleCreateChat = async (e) => {
     e.preventDefault();
     const newChat = { 
       name: chatName, 

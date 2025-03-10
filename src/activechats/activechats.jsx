@@ -5,15 +5,22 @@ import { NavLink, Outlet } from 'react-router-dom';
 export function ActiveChats() {
   const [chats, setChats] = useState([]);
 
-  useEffect(() => {
-    const storedChats = JSON.parse(localStorage.getItem('chats')) || [];
-    setChats(storedChats);
-  }, []);
+  const fetchChats = async () => {
+    try {
+      const response = await fetch('/api/chats');
+      if (response.ok) {
+        const data = await response.json();
+        setChats(data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
+    fetchChats();
     const interval = setInterval(() => {
-      const updatedChats = JSON.parse(localStorage.getItem('chats')) || [];
-      setChats(updatedChats);
+      fetchChats();
     }, 3000);
     return () => clearInterval(interval);
   }, []);
