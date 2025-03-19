@@ -148,11 +148,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
+- [X] **User registration** - Creation of a user functioning as expected.
+- [X] **User login and logout** - Login and logout functionality functioning as expected.
+- [X] **Stores data in MongoDB** - Users(and related data) stored in MongoDB from `service/database.js`.
+- [X] **Stores credentials in MongoDB** - Auth stored in MongoDB from `service/database.js`.
+- [X] **Restricts functionality based on authentication** - Presents unauthorized users from accessing other pages without first registering or logging in.
 
 ## 🚀 WebSocket deliverable
 
