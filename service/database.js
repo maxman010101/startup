@@ -5,7 +5,7 @@ const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostna
 const client = new MongoClient(url);
 const db = client.db('startup');
 const userCollection = db.collection('user');
-const scoreCollection = db.collection('chat');
+const chatCollection = db.collection('chat');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -34,10 +34,29 @@ async function updateUser(user) {
   await userCollection.updateOne({ username: user.username }, { $set: user });
 }
 
+async function getChats() {
+    return await chatCollection.find({}).toArray();
+  }
+  
+  async function getChatByName(name) {
+    return await chatCollection.findOne({ name: name });
+  }
+  
+  async function addChat(chat) {
+    await chatCollection.insertOne(chat);
+  }
+  
+  async function updateChat(chat) {
+    await chatCollection.updateOne({ name: chat.name }, { $set: chat }, { upsert: true });
+  }
+
 module.exports = {
     getUser,
     getUserByToken,
     addUser,
     updateUser,
-
+    getChats,
+    getChatByName,
+    addChat,
+    updateChat
   };

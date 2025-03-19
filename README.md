@@ -150,7 +150,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 - [X] **User registration** - Creation of a user functioning as expected.
 - [X] **User login and logout** - Login and logout functionality functioning as expected.
-- [X] **Stores data in MongoDB** - Users(and related data) stored in MongoDB from `service/database.js`.
+- [X] **Stores data in MongoDB** - Users(and related data) and chat data stored in MongoDB from `service/database.js`. Chat data updates in db when data is updated.
 - [X] **Stores credentials in MongoDB** - Auth tokens, along with other user data, stored in MongoDB from `service/database.js`.
 - [X] **Restricts functionality based on authentication** - Presents unauthorized users from accessing other pages without first registering or logging in.
 

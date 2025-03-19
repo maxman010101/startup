@@ -11,7 +11,7 @@ const newsapi = new NewsAPI('1f1e7ab62d894e70922241b73fa2a4a4');
 const authCookieName = 'token';
 
 
-let chats = [];
+//let chats = [];
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -72,14 +72,29 @@ const verifyAuth = async (req, res, next) => {
 };
   
 // Get all chats
-apiRouter.get('/chats', verifyAuth, (_req, res) => {
+apiRouter.get('/chats', verifyAuth, async (_req, res) => {
+  const chats = await DB.getChats();
   res.send(chats);
 });
   
 // Create or update a chat
-apiRouter.post('/chat', verifyAuth, (req, res) => {
-  chats = updateChats(req.body);
-  res.send(chats);
+apiRouter.post('/chat', verifyAuth, async (req, res) => {
+  const existingChat = await DB.getChatByName(req.body.name);
+  if (existingChat) {
+    existingChat.messages = req.body.messages;
+    existingChat.comments = req.body.comments;
+    existingChat.date = req.body.date;
+    await DB.updateChat(existingChat);
+  } else {
+    const newChat = {
+      name: req.body.name,
+      comments: req.body.comments || 0,
+      date: req.body.date || new Date().toLocaleDateString(),
+      messages: req.body.messages || []
+    };
+    await DB.addChat(newChat);
+  }
+  res.send(await DB.getChats());
 });
   
 //Fetch a random US headline using the NewsAPI package
@@ -111,17 +126,6 @@ app.use(function (err, req, res, next) {
 app.use((_req, res) => {
   res.sendFile('index.html', { root: 'public' });
 });
-  
-// updateChats updates an existing chat (matched by name) or adds a new chat.
-function updateChats(chatUpdate) {
-  const index = chats.findIndex(chat => chat.name === chatUpdate.name);
-  if (index !== -1) {
-    chats[index] = chatUpdate;
-  } else {
-    chats.push(chatUpdate);
-  }
-  return chats;
-}
   
 async function createUser(username, password) {
   const passwordHash = await bcrypt.hash(password, 10);
