@@ -158,8 +158,8 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [X] **Backend listens for WebSocket connection** - Backend websocket handled in `service/index.js`
+- [X] **Frontend makes WebSocket connection** - Websocket management done in my `makeChat.jsx`
+- [X] **Data sent over WebSocket connection** - JSON representation of chat creation notifications.
+- [X] **WebSocket data displayed** - Chat creation notifications display when a user is on the make chat page(if another user makes a chat while you are on make chat page, notif will appear).
+- [ ] **Application is fully functional** - Have chat creation notifs done and working.

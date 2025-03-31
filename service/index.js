@@ -4,6 +4,7 @@ const uuid = require('uuid');
 const express = require('express');
 const app = express();
 const DB = require('./database.js');
+const { peerProxy } = require('./peerProxy.js');
 
 const NewsAPI = require('newsapi'); // Using the NewsAPI package
 const newsapi = new NewsAPI('1f1e7ab62d894e70922241b73fa2a4a4'); 
@@ -76,9 +77,20 @@ apiRouter.get('/chats', verifyAuth, async (_req, res) => {
   const chats = await DB.getChats();
   res.send(chats);
 });
+
+// WebSocket server instance
+const httpService = app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
+});
+const peerServer = peerProxy(httpService);
   
 // Create or update a chat
 apiRouter.post('/chat', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (!user) {
+    return res.status(401).send({ msg: 'Unauthorized' });
+  }
+  
   const existingChat = await DB.getChatByName(req.body.name);
   if (existingChat) {
     existingChat.messages = req.body.messages;
@@ -93,6 +105,14 @@ apiRouter.post('/chat', verifyAuth, async (req, res) => {
       messages: req.body.messages || []
     };
     await DB.addChat(newChat);
+
+    // Send WebSocket notification about new chat
+    const message = JSON.stringify({
+      type: 'chatCreated',
+      username: user.username, // Now includes the user's username
+      chatName: newChat.name  // The new chat's name
+    });
+    peerServer.broadcast(message);
   }
   res.send(await DB.getChats());
 });
@@ -155,6 +175,6 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Listening on port ${port}`);
+// });

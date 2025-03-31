@@ -31,6 +31,17 @@ function peerProxy(httpServer) {
       client.ping();
     });
   }, 10000);
+
+  // Function to broadcast messages to all connected clients
+  socketServer.broadcast = function (message) {
+    socketServer.clients.forEach((client) => {
+      if (client.readyState === WebSocket.OPEN) {
+        client.send(message);
+      }
+    });
+  };
+
+  return socketServer;
 }
 
 module.exports = { peerProxy };

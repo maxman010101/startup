@@ -6,22 +6,29 @@ export function MakeChat() {
   const navigate = useNavigate();
   const [chatName, setChatName] = useState('');
   const [notifications, setNotifications] = useState([]);
-  const userNames = ['Joe', 'Alice', 'Bob', 'Charlie', 'Dana'];
-  const chatNames = ['Favorite Movies', 'Best Restaurants', 'Tech Talk', 'Gaming Chat', 'Daily News'];
+  //const userNames = ['Joe', 'Alice', 'Bob', 'Charlie', 'Dana'];
+  //const chatNames = ['Favorite Movies', 'Best Restaurants', 'Tech Talk', 'Gaming Chat', 'Daily News'];
 
+  // Establish WebSocket connection to receive real notifications
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomUser = userNames[Math.floor(Math.random() * userNames.length)];
-      const randomChat = chatNames[Math.floor(Math.random() * chatNames.length)];
-      const newNotification = `${randomUser} made a new chat called '${randomChat}'`;
-      
-      setNotifications((prev) => {
-        const updatedNotifications = [...prev, newNotification].slice(-5); // Keep last 5 notifications
-        return updatedNotifications;
-      });
-    }, 5000);
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    const ws = new WebSocket(`${protocol}://${window.location.hostname}:${window.location.port}/ws`);
+    
+    ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data.type === 'chatCreated') {
+          // Append the notification and keep only the last 5 messages
+          setNotifications(prev => [...prev, `${data.username} made a new chat called '${data.chatName}'`].slice(-5));
+        }
+      } catch (error) {
+        console.error('Error parsing WebSocket message:', error);
+      }
+    };
 
-    return () => clearInterval(interval);
+    return () => {
+      ws.close();
+    };
   }, []);
 
   const handleCreateChat = async (e) => {
