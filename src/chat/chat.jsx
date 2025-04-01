@@ -8,13 +8,10 @@ export function Chat() {
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const [senderName, setSenderName] = useState('');
+  const [ws, setWs] = useState(null);
 
-  const sampleMessages = [
-    { user: 'Alice', text: 'Anyone here watched the latest movie?' },
-    { user: 'Charlie', text: 'What’s everyone up to today?' },
-    { user: 'Dana', text: 'Has anyone tried that new coffee shop?' }
-  ];
-
+  // Load existing messages for the chat from the backend
   useEffect(() => {
     const fetchChat = async () => {
       try {
@@ -27,36 +24,42 @@ export function Chat() {
           }
         }
       } catch (err) {
-        console.error(err);
+        console.error('Error fetching chat:', err);
       }
     };
     fetchChat();
   }, [chatName]);
 
+  // Establish WebSocket connection for real-time messaging
   useEffect(() => {
-    const interval = setInterval(() => {
-      const randomMessage = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
-      setMessages((prev) => {
-        const newMessages = [...prev, randomMessage];
-        updateChatMetadata(newMessages);
-        return newMessages;
-      });
-    }, 5000);
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    // Assumes your WebSocket endpoint is at /ws
+    const socket = new WebSocket(`${protocol}://${window.location.hostname}:${window.location.port}/ws`);
+    
+    socket.onopen = () => {
+      console.log('WebSocket connected for chat');
+    };
 
-    return () => clearInterval(interval);
-  }, []);
+    socket.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        // Only handle messages of type 'chatMessage' for this chat
+        if (data.type === 'chatMessage' && data.chatName === chatName) {
+          setMessages(prev => [...prev, { user: data.user, text: data.text }]);
+        }
+      } catch (error) {
+        console.error('Error parsing WebSocket message:', error);
+      }
+    };
 
-  const handleSendMessage = () => {
-    if (input.trim()) {
-      setMessages((prev) => {
-        const newMessages = [...prev, { user: 'You', text: input }];
-        updateChatMetadata(newMessages);
-        return newMessages;
-      });
-      setInput('');
-    }
-  };
+    setWs(socket);
 
+    return () => {
+      socket.close();
+    };
+  }, [chatName]);
+
+  // Update the chat metadata (persist messages) on the backend
   const updateChatMetadata = async (newMessages) => {
     const chatUpdate = { 
       name: chatName, 
@@ -71,21 +74,52 @@ export function Chat() {
         body: JSON.stringify(chatUpdate),
       });
     } catch (err) {
-      console.error(err);
+      console.error('Error updating chat metadata:', err);
+    }
+  };
+
+  // Handle sending a new chat message
+  const handleSendMessage = async () => {
+    if (input.trim() && senderName.trim()) {
+      const newMsg = { user: senderName, text: input };
+      const updatedMessages = [...messages, newMsg];
+      setMessages(updatedMessages);
+
+      // Send the new message via WebSocket so that other clients receive it
+      if (ws && ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: 'chatMessage',
+          chatName,
+          user: senderName,
+          text: input,
+        }));
+      }
+
+      // Persist the updated chat to the backend
+      await updateChatMetadata(updatedMessages);
+      setInput('');
     }
   };
 
   return (
     <main className="chat-container">
-      <h1 className="chat-title">Welcome to {chatName}!</h1>
+      <h1 className="chat-title">
+        Welcome to {chatName}! Please re-enter the chat to see updates!
+      </h1>
       <div className="chat-box">
         {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.user === 'You' ? 'sent' : 'received'}`}>
+          <div key={index} className={`message ${msg.user === senderName ? 'sent' : 'received'}`}>
             <p><strong>{msg.user}:</strong> {msg.text}</p>
           </div>
         ))}
       </div>
       <div className="message-input">
+        <input 
+          type="text" 
+          placeholder="Enter your display name..." 
+          value={senderName}
+          onChange={(e) => setSenderName(e.target.value)}
+        />
         <input 
           type="text" 
           placeholder="Write your message..." 
