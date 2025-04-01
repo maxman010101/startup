@@ -159,7 +159,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
 - [X] **Backend listens for WebSocket connection** - Backend websocket handled in `service/index.js`
-- [X] **Frontend makes WebSocket connection** - Websocket management done in my `makeChat.jsx`
-- [X] **Data sent over WebSocket connection** - JSON representation of chat creation notifications.
-- [X] **WebSocket data displayed** - Chat creation notifications display when a user is on the make chat page(if another user makes a chat while you are on make chat page, notif will appear).
-- [ ] **Application is fully functional** - Have chat creation notifs done and working.
+- [X] **Frontend makes WebSocket connection** - Websocket management done in my `makeChat.jsx` and in `chat.jsx`
+- [X] **Data sent over WebSocket connection** - JSON representation of chat creation notifications and of chat messages.
+- [X] **WebSocket data displayed** - Chat creation notifications display when a user is on the make chat page(if another user makes a chat while you are on make chat page, notif will appear). Messages appear with the inputed name of the sender, fun little quirk is that if you input a name and messages sent by that name exist, they show up as sent(blue) instead of recieved(grey), so this accidentally turned into a way to search for peoples messages specifically as well as chat! Fun accidental functionality!!
+- [X] **Application is fully functional** - Have chat creation notifs done and working. Have chatting working between users. NOTE: users must re-enter a chat to see new messages.
